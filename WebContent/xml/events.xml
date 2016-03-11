@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ROWSET>
+    <ROW>
+        <ENAME>Appathon</ENAME>
+        <EBANNER>http://gatesapi.herokuapp.com/img/banners/androidtechies.png</EBANNER>
+        <ETIME>1457594696</ETIME>
+        <EM>
+            <NAME>Dilpreet</NAME>
+            <EMAIL>asdas@gmail.com</EMAIL>
+            <PHONE>9999999999</PHONE>
+        </EM>
+        <ED>Event hai bas</ED>
+        <EC1>
+            <NAME>EC 1</NAME>
+            <EMAIL>asdasd@gmail.com</EMAIL>
+            <PHONE>8888888888</PHONE>
+        </EC1>
+        <EC2>
+            <NAME>EC 2</NAME>
+            <EMAIL>asdasadsd@gmail.com</EMAIL>
+            <PHONE>8888888888</PHONE>
+        </EC2>
+        <SNAME>Android Techies</SNAME>
+    </ROW>
+    <ROW>
+        <ENAME>Hack N Crack</ENAME>
+        <EBANNER>http://gatesapi.herokuapp.com/img/banners/androidtechies.png</EBANNER>
+        <ETIME>1457594565</ETIME>
+        <EM>
+            <NAME>Mandeep Singh</NAME>
+            <EMAIL>aslkdjalskdj@gmail.com</EMAIL>
+            <PHONE>9999999999</PHONE>
+        </EM>
+        <ED>Event hai bas</ED>
+        <EC1>
+            <NAME>EC 100</NAME>
+            <EMAIL>asdasd@gmail.com</EMAIL>
+            <PHONE>8888888888</PHONE>
+        </EC1>
+        <EC2>
+            <NAME>EC 200</NAME>
+            <EMAIL>asdasadsd@gmail.com</EMAIL>
+            <PHONE>8888888888</PHONE>
+        </EC2>
+        <SNAME>TSG</SNAME>
+    </ROW>
+</ROWSET>
