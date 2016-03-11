@@ -3,7 +3,6 @@ package com.gatesgtbit.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -44,14 +43,12 @@ public class SocietesCard extends HttpServlet
 						"GSC","IEEE","ISTE",
 						"Munistry","Natya","Swaas","TSG"};
 		String query=request.getParameter("q");
-		ServletContext servletContext = getServletContext();
-		String contextPath = servletContext.getContextPath();
 		if(query.equals("societies"))
 		{	JSONArray arr=new JSONArray();
 			for(int i=0;i<fname.length;i++)
 			{	JSONObject name=new JSONObject();
 			name.put("sname",sname[i]);
-			name.put("imgurl",contextPath+"/img/icons/"+fname[i]+".png");
+			name.put("imgurl",fname[i]+".png");
 			arr.put(name);
 			}
 			PrintWriter out=response.getWriter();

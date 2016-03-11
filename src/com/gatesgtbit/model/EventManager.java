@@ -1,6 +1,8 @@
 package com.gatesgtbit.model;
 
-public class EventPerson 
+import org.json.JSONObject;
+
+public class EventManager 
 {	private String name,phoneno,email;
 
 	public String getName() {
@@ -25,5 +27,13 @@ public class EventPerson
 	
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public JSONObject getEMJSONObject()
+	{	JSONObject em=new JSONObject();
+		em.put("emname",name);
+		em.put("emmail",email);
+		em.put("emphno",phoneno);
+		return em;
 	}
 }

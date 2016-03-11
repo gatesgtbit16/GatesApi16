@@ -1,11 +1,25 @@
 package com.gatesgtbit.model;
 
+import org.json.JSONObject;
+
 public class Event implements Comparable<Event>
 {	private String ename,ebanner,sname;
-	private long time;
-	private EventPerson EM,EC1,EC2;
+	private String time,desc;
 
+	private EventManager EM;
+	private EventCoordinator EC1,EC2;
 	
+	public Event() {
+	}
+	
+	public String getDesc() {
+		return desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc=desc;
+	}
+
 	public String getEname() {
 		return ename;
 	}
@@ -30,40 +44,65 @@ public class Event implements Comparable<Event>
 		this.sname = sname;
 	}
 
-	public long getTime() {
+	public String getTime() {
 		return time;
 	}
 
-	public void setTime(long time) {
+	public void setTime(String time) {
 		this.time = time;
 	}
 
-	public EventPerson getEM() {
+	public EventManager getEM() {
 		return EM;
 	}
 
-	public void setEM(EventPerson eM) {
-		EM = eM;
+	public void setEM(EventManager EM) {
+		this.EM=EM;
 	}
-
-	public EventPerson getEC1() {
+	
+	
+	public EventCoordinator getEC1() {
 		return EC1;
 	}
 
-	public void setEC1(EventPerson eC1) {
-		EC1 = eC1;
+	public void setEC1(EventCoordinator EC1) {
+		this.EC1 = EC1;
 	}
 
-	public EventPerson getEC2() {
+	public EventCoordinator getEC2() {
 		return EC2;
 	}
 
-	public void setEC2(EventPerson eC2) {
-		EC2 = eC2;
+	public void setEC2(EventCoordinator EC2) {
+		this.EC2 = EC2;
 	}
 
+	public JSONObject getEventJSONObject()
+	{	JSONObject event=new JSONObject();
+		event.put("ename",ename);
+		event.put("banner",ebanner);
+		event.put("utime",time);
+		event.put("desc",desc);
+		event.put("sname",sname);
+		JSONObject em=EM.getEMJSONObject();
+		JSONObject ec1=EC1.getECJSONObject();
+		JSONObject ec2=EC2.getECJSONObject();	
+		event.put("emanager",em);
+		event.put("ecoor1",ec1);
+		event.put("ecoor2",ec2);
+		return event;
+	}
+	
 	@Override
 	public int compareTo(Event E) {
-		return 0;
+		if(E.getTime()==time)
+		{	return 0;
+		}
+		else if(Long.parseLong(E.getTime())>Long.parseLong(time))
+		{	return 1;
+		}
+		else
+		{	return -1;
+		}
 	}
 }
