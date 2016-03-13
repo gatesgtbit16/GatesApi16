@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>
+			Events Registration for Gates Application
+		</title>
+		<script type="text/javascript">
+			function validate()
+			{	if(gform.time1.value==""&&gform.time2.value==""&&gform.time3.value=="")
+				{	alert("You should enter atleast one time.");
+					return false;
+				}
+				if(!gform.disclaimer.checked)
+				{	alert("Please check the disclaimer before submitting");	
+					return false;
+				}
+				return true;
+			}
+		</script>
+	</head>
+	<body>
+		<form method="post" action="EventsSandbox" id="gform">
+			<pre>
+					Events Data for Gates Application
+				
+				<strong>Note:Make Sure to fill accurate data</strong>
+			
+				Event Name*
+				<input type="text" name="nevent" id="nevent"/>
+			
+				Society Name
+				<input type="text" name="sname" id="sname"/>
+				
+				Poster Image URL(Eg. http://www.gatesgtbit.com/images/slider/bg1.jpg)*
+				<input type="text" name="banner" id="nbanner"/>
+				
+				Event Description(Paragraph only)*
+				<textarea name="ed" cols="50" rows="5" id="ed">Explain your event in a paragraph</textarea>
+				
+				Event UTC(First Day,Leave blank if it is not on first day) 
+				<input type="text" name="time1" id="time1"/>
+				
+				Event UTC(Second Day,Leave blank if it is not on second day)
+				<input type="text" name="time2" id="time2"/>
+				
+				Event UTC(Third Day,Leave blank if it is not on third day)
+				<input type="text" name="time3" id="time3"/>
+				
+				<a href="http://www.timeanddate.com/time/aboututc.html">What is UTC?</a>
+				
+				Venue*
+				<input type="text" name="venue" id="venue"/>
+				
+				EM Name*
+				<input type="text" name="em" id="em"/>
+				
+				EC1 Name
+				<input type="text" name="ec1" id="ec1"/>
+				
+				EC2 Name
+				<input type="text" name="ec2" id="ec2"/>
+				
+				Contact No.*
+				<input type="text" name="phno" id="phno"/>
+				
+				Contact Email*
+				<input type="email" name="email" id="email"/>
+				
+				<input type="checkbox" id="disclaimer"/>&nbsp;Disclaimer: I am Solely responsible for any inaccuracy in data.
+				
+				<input type="submit" value="send" onclick="return validate()"/>
+			</pre>
+		</form>
+	</body>
+</html>
