@@ -1,4 +1,4 @@
-package com.gatesgtbit.controller;
+package com.gatesgtbit.sandbox;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,16 +15,16 @@ import javax.servlet.http.HttpServletResponse;
 import com.gatesgtbit.model.TableData;
 
 /**
- * Servlet implementation class SocietySandbox
+ * Servlet implementation class EventsSandbox
  */
-@WebServlet("/SocietySandbox")
-public class SocietySandbox extends HttpServlet {
+@WebServlet("/EventsSandbox")
+public class EventsSandbox extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SocietySandbox() {
+    public EventsSandbox() {
         super();
     }
 
@@ -39,15 +39,26 @@ public class SocietySandbox extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out=response.getWriter();
+		String ename=request.getParameter("nevent");
+		String ebanner=request.getParameter("banner");
+		String ed=request.getParameter("ed");
+		String etime1=request.getParameter("time1");
+		String etime2=request.getParameter("time2");
+		String etime3=request.getParameter("time3");
+		String venue=request.getParameter("venue");
+		String em=request.getParameter("em");
+		String ec1=request.getParameter("ec1");
+		String ec2=request.getParameter("ec2");
+		String phno=request.getParameter("phno");
+		String email=request.getParameter("email");
 		String sname=request.getParameter("sname");
-		String sbanner=request.getParameter("sbanner");
-		String sinfo=request.getParameter("sinfo");
 		try
 		{	Class.forName(TableData.DB_DRIVERS);
 			Connection con=DriverManager.getConnection(TableData.CONNECTION_URL,TableData.USERNAME,TableData.PASSWORD);
 			Statement st=con.createStatement();
-			String Q="insert into societies values('"+sname+"','"+sbanner+"','"+sinfo+"')";
-			if(!sname.equals("")&&!sinfo.equals(""))
+			String Q="insert into event_details (ename,ebanner,etime,emname,ec1name,ec2name,cno,cemail,ed,etime2,etime3,venue,sname)"
+					+ "values('"+ename+"','"+ebanner+"','"+etime1+"','"+em+"','"+ec1+"','"+ec2+"','"+phno+"','"+email+"','"+ed+"','"+etime2+"','"+etime3+"','"+venue+"','"+sname+"')";
+			if(!ename.equals("")&&!ebanner.equals("")&&!ed.equals("")&&!em.equals("")&&!phno.equals("")&&!email.equals("")&&!venue.equals(""))
 			{	int i=st.executeUpdate(Q);
 				if(i>0)
 				{	out.println("Your Data has been recorded. Thank you for cooperating.");
@@ -65,5 +76,4 @@ public class SocietySandbox extends HttpServlet {
 		{	e.printStackTrace();
 		}
 	}
-
 }

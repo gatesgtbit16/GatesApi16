@@ -104,6 +104,7 @@ public class EventDetails extends HttpServlet {
 	        	}
 	        	out.println(events.toString());	
 	        }
+	        con.close();
 		} 
 		catch (Exception e) 
 		{	e.printStackTrace();

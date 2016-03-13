@@ -43,7 +43,7 @@ public class DayEvents extends HttpServlet {
 							Connection con=DriverManager.getConnection(TableData.CONNECTION_URL,TableData.USERNAME,TableData.PASSWORD);
 							Statement st=con.createStatement();
 							PrintWriter out=response.getWriter();
-					        String query1="select ename,ebanner,event_id,etime from event_details where etime!=''";
+					        String query1="select ename,ebanner,event_id,etime from event_details where etime!='' order by etime asc";
 				        	ResultSet res=st.executeQuery(query1);
 				        	JSONArray event=new JSONArray();
 				        	while(res.next())
@@ -66,7 +66,7 @@ public class DayEvents extends HttpServlet {
 							Connection con=DriverManager.getConnection(TableData.CONNECTION_URL,TableData.USERNAME,TableData.PASSWORD);
 							Statement st=con.createStatement();
 							PrintWriter out=response.getWriter();
-					        String query1="select ename,ebanner,event_id,etime2 from event_details where etime2!=''";
+					        String query1="select ename,ebanner,event_id,etime2 from event_details where etime2!='' order by etime2 asc";
 				        	ResultSet res=st.executeQuery(query1);
 				        	JSONArray event=new JSONArray();
 				        	while(res.next())
@@ -89,7 +89,7 @@ public class DayEvents extends HttpServlet {
 							Connection con=DriverManager.getConnection(TableData.CONNECTION_URL,TableData.USERNAME,TableData.PASSWORD);
 							Statement st=con.createStatement();
 							PrintWriter out=response.getWriter();
-					        String query1="select ename,ebanner,event_id,etime3 from event_details where etime3!=''";
+					        String query1="select ename,ebanner,event_id,etime3 from event_details where etime3!='' order by etime3 asc";
 					    	ResultSet res=st.executeQuery(query1);
 					    	JSONArray event=new JSONArray();
 					    	while(res.next())

@@ -24,7 +24,6 @@ public class SocietesCard extends HttpServlet
      */
     public SocietesCard() 
     {   super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
