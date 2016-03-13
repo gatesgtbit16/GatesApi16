@@ -47,8 +47,8 @@ public class SocietesCard extends HttpServlet
 		{	JSONArray arr=new JSONArray();
 			for(int i=0;i<fname.length;i++)
 			{	JSONObject name=new JSONObject();
-			name.put("sname",sname[i]);
-			name.put("imgurl",fname[i]+".png");
+				name.put("sname",sname[i]);
+				name.put("imgurl",fname[i]+".png");
 			arr.put(name);
 			}
 			PrintWriter out=response.getWriter();

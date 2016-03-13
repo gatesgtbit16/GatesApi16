@@ -2,14 +2,23 @@ package com.gatesgtbit.model;
 
 import org.json.JSONObject;
 
-public class Event implements Comparable<Event>
-{	private String ename,ebanner,sname;
-	private String time,desc;
-
+public class Event
+{	private int eventid;
+	private String ename,ebanner,sname;
+	private String time1,time2,time3,desc;
+	private String venue;
 	private EventManager EM;
 	private EventCoordinator EC1,EC2;
 	
 	public Event() {
+	}
+	
+	public int getEventid() {
+		return eventid;
+	}
+
+	public void setEventid(int eventid) {
+		this.eventid = eventid;
 	}
 	
 	public String getDesc() {
@@ -44,12 +53,36 @@ public class Event implements Comparable<Event>
 		this.sname = sname;
 	}
 
-	public String getTime() {
-		return time;
+	public String getTime1() {
+		return time1;
 	}
 
-	public void setTime(String time) {
-		this.time = time;
+	public void setTime1(String time1) {
+		this.time1 = time1;
+	}
+
+	public String getTime2() {
+		return time2;
+	}
+
+	public void setTime2(String time2) {
+		this.time2 = time2;
+	}
+
+	public String getTime3() {
+		return time3;
+	}
+
+	public void setTime3(String time3) {
+		this.time3 = time3;
+	}
+
+	public String getVenue() {
+		return venue;
+	}
+
+	public void setVenue(String venue) {
+		this.venue = venue;
 	}
 
 	public EventManager getEM() {
@@ -79,9 +112,13 @@ public class Event implements Comparable<Event>
 
 	public JSONObject getEventJSONObject()
 	{	JSONObject event=new JSONObject();
+		event.put("eid",eventid);
 		event.put("ename",ename);
 		event.put("banner",ebanner);
-		event.put("utime",time);
+		event.put("time1",time1);
+		event.put("time2",time2);
+		event.put("time3",time3);
+		event.put("venue",venue);
 		event.put("desc",desc);
 		event.put("sname",sname);
 		JSONObject em=EM.getEMJSONObject();
@@ -91,18 +128,5 @@ public class Event implements Comparable<Event>
 		event.put("ecoor1",ec1);
 		event.put("ecoor2",ec2);
 		return event;
-	}
-	
-	@Override
-	public int compareTo(Event E) {
-		if(E.getTime()==time)
-		{	return 0;
-		}
-		else if(Long.parseLong(E.getTime())>Long.parseLong(time))
-		{	return 1;
-		}
-		else
-		{	return -1;
-		}
 	}
 }
