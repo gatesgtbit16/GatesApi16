@@ -40,7 +40,7 @@ public class SponsorsInfo extends HttpServlet {
 		{	Class.forName(TableData.DB_DRIVERS);
 			Connection con=DriverManager.getConnection(TableData.CONNECTION_URL,TableData.USERNAME,TableData.PASSWORD);
 			Statement st=con.createStatement();
-			PrintWriter out=response.getWriter();
+			//PrintWriter out=response.getWriter();
 	        String query1="select * from sponsers";
 	    	ResultSet res=st.executeQuery(query1);
 	    	JSONArray arr=new JSONArray();

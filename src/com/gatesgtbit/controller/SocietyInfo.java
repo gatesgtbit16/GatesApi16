@@ -30,7 +30,6 @@ public class SocietyInfo extends HttpServlet {
      */
     public SocietyInfo() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**

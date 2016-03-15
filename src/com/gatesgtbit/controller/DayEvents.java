@@ -55,6 +55,7 @@ public class DayEvents extends HttpServlet {
 				        		event.put(data.getJSONObject());
 					        }
 				        	out.println(event.toString());
+				        	con.close();
 						}
 						catch(Exception e)
 						{	e.printStackTrace();				
@@ -78,6 +79,7 @@ public class DayEvents extends HttpServlet {
 				        		event.put(data.getJSONObject());
 					        }
 				        	out.println(event.toString());
+				        	con.close();
 						}
 						catch(Exception e)
 						{	e.printStackTrace();				
@@ -101,6 +103,7 @@ public class DayEvents extends HttpServlet {
 					    		event.put(data.getJSONObject());
 					        }
 					    	out.println(event.toString());
+				        	con.close();
 						}
 						catch(Exception e)
 						{	e.printStackTrace();				
