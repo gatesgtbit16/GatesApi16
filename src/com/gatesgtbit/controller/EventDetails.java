@@ -70,6 +70,7 @@ public class EventDetails extends HttpServlet {
 	        		event.setVenue(res.getString(12));
 	        		event.setEventid(res.getInt(13));
 	        		event.setSname(res.getString(14));
+	        		event.setForm(res.getString(15));
 	        		events.put(event.getEventJSONObject());
 	        	}
 	        	out.println(events.toString());
@@ -100,6 +101,7 @@ public class EventDetails extends HttpServlet {
 	        		event.setVenue(res.getString(12));
 	        		event.setEventid(res.getInt(13));
 	        		event.setSname(res.getString(14));
+	        		event.setForm(res.getString(15));
 	        		events.put(event.getEventJSONObject());
 	        	}
 	        	out.println(events.toString());	

@@ -40,9 +40,11 @@ public class SponsorsInfo extends HttpServlet {
 		{	Class.forName(TableData.DB_DRIVERS);
 			Connection con=DriverManager.getConnection(TableData.CONNECTION_URL,TableData.USERNAME,TableData.PASSWORD);
 			Statement st=con.createStatement();
-			//PrintWriter out=response.getWriter();
+			PrintWriter out=response.getWriter();
 	        String query1="select * from sponsers";
 	    	ResultSet res=st.executeQuery(query1);
+	    	JSONObject title=new JSONObject();
+	    	title.put("title","Previous Sponsers");
 	    	JSONArray arr=new JSONArray();
     		while(res.next())
 	    	{	JSONObject obj=new JSONObject();
@@ -50,6 +52,10 @@ public class SponsorsInfo extends HttpServlet {
 	    		obj.put("banner",res.getString(2));
 	    		arr.put(obj);
 	    	}
+    		title.put("array",arr);
+    		JSONArray end=new JSONArray();
+    		end.put(title);
+    		out.print(end.toString());
 	        con.close();
 		}
 		catch(Exception e)

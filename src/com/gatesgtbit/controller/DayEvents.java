@@ -43,7 +43,7 @@ public class DayEvents extends HttpServlet {
 							Connection con=DriverManager.getConnection(TableData.CONNECTION_URL,TableData.USERNAME,TableData.PASSWORD);
 							Statement st=con.createStatement();
 							PrintWriter out=response.getWriter();
-					        String query1="select ename,ebanner,event_id,etime from event_details where etime!='' order by etime asc";
+					        String query1="select ename,ebanner,event_id,etime,ed from event_details where etime!='' order by etime desc";
 				        	ResultSet res=st.executeQuery(query1);
 				        	JSONArray event=new JSONArray();
 				        	while(res.next())
@@ -52,6 +52,7 @@ public class DayEvents extends HttpServlet {
 				        		data.setName(res.getString(1));
 				        		data.setBanner(res.getString(2));
 				        		data.setTime(res.getString(4));
+					    		data.setDesc(res.getString(5));
 				        		event.put(data.getJSONObject());
 					        }
 				        	out.println(event.toString());
@@ -67,7 +68,7 @@ public class DayEvents extends HttpServlet {
 							Connection con=DriverManager.getConnection(TableData.CONNECTION_URL,TableData.USERNAME,TableData.PASSWORD);
 							Statement st=con.createStatement();
 							PrintWriter out=response.getWriter();
-					        String query1="select ename,ebanner,event_id,etime2 from event_details where etime2!='' order by etime2 asc";
+					        String query1="select ename,ebanner,event_id,etime2,ed from event_details where etime2!='' order by etime2 desc";
 				        	ResultSet res=st.executeQuery(query1);
 				        	JSONArray event=new JSONArray();
 				        	while(res.next())
@@ -76,6 +77,7 @@ public class DayEvents extends HttpServlet {
 				        		data.setName(res.getString(1));
 				        		data.setBanner(res.getString(2));
 				        		data.setTime(res.getString(4));
+					    		data.setDesc(res.getString(5));
 				        		event.put(data.getJSONObject());
 					        }
 				        	out.println(event.toString());
@@ -91,7 +93,7 @@ public class DayEvents extends HttpServlet {
 							Connection con=DriverManager.getConnection(TableData.CONNECTION_URL,TableData.USERNAME,TableData.PASSWORD);
 							Statement st=con.createStatement();
 							PrintWriter out=response.getWriter();
-					        String query1="select ename,ebanner,event_id,etime3 from event_details where etime3!='' order by etime3 asc";
+					        String query1="select ename,ebanner,event_id,etime3,ed from event_details where etime3!='' order by etime3 desc";
 					    	ResultSet res=st.executeQuery(query1);
 					    	JSONArray event=new JSONArray();
 					    	while(res.next())
@@ -100,6 +102,7 @@ public class DayEvents extends HttpServlet {
 					    		data.setName(res.getString(1));
 					    		data.setBanner(res.getString(2));
 					    		data.setTime(res.getString(4));
+					    		data.setDesc(res.getString(5));
 					    		event.put(data.getJSONObject());
 					        }
 					    	out.println(event.toString());
@@ -116,6 +119,5 @@ public class DayEvents extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 	}
 }

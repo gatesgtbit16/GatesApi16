@@ -43,6 +43,7 @@ public class EventListData
 		js.put("ename",name);
 		js.put("ebanner", banner);
 		js.put("time",time);
+		js.put("desc",desc);
 		return js;
 	}
 }

@@ -33,7 +33,7 @@ public class SocietesCard extends HttpServlet
 	{	String fname[]={"atu","bli","dlci",
 						"edci","elancei","epicturei",
 						"etci","gfsi","gi",
-						"gsci","ieee","istei",
+						"gsci","ieeei","istei",
 						"muni","natyai","swaasi",
 						"tsgi"};
 		String sname[]={"Android Techies","Bhangra Lions","DLC",

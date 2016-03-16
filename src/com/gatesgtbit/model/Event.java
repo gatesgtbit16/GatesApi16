@@ -6,7 +6,7 @@ public class Event
 {	private int eventid;
 	private String ename,ebanner,sname;
 	private String time1,time2,time3,desc;
-	private String venue;
+	private String venue,form;
 	private EventManager EM;
 	private EventCoordinator EC1,EC2;
 	
@@ -110,6 +110,14 @@ public class Event
 		this.EC2 = EC2;
 	}
 
+	public String getForm() {
+		return form;
+	}
+
+	public void setForm(String form) {
+		this.form = form;
+	}
+
 	public JSONObject getEventJSONObject()
 	{	JSONObject event=new JSONObject();
 		event.put("eid",eventid);
@@ -127,6 +135,7 @@ public class Event
 		event.put("emanager",em);
 		event.put("ecoor1",ec1);
 		event.put("ecoor2",ec2);
+		event.put("form",form);
 		return event;
 	}
 }
