@@ -5,7 +5,6 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.Statement;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -54,12 +53,13 @@ public class EventsSandbox extends HttpServlet {
 		String email=request.getParameter("email");
 		String sname=request.getParameter("sname");
 		String form=request.getParameter("form1");
+		String category=request.getParameter("category");
 		try
 		{	Class.forName(TableData.DB_DRIVERS);
 			Connection con=DriverManager.getConnection(TableData.CONNECTION_URL,TableData.USERNAME,TableData.PASSWORD);
-			String Q="insert into event_details (ename,ebanner,etime,emname,ec1name,ec2name,cno,cemail,ed,etime2,etime3,venue,sname,form)"
-					+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-			if(!ename.equals("")&&!ebanner.equals("")&&!ed.equals("")&&!em.equals("")&&!phno.equals("")&&!email.equals("")&&!venue.equals(""))
+			String Q="insert into event_details (ename,ebanner,etime,emname,ec1name,ec2name,cno,cemail,ed,etime2,etime3,venue,sname,form,category)"
+					+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			if(!ename.equals("")&&!category.equals("")&&!ebanner.equals("")&&!ed.equals("")&&!em.equals("")&&!phno.equals("")&&!email.equals("")&&!venue.equals(""))
 			{	PreparedStatement ps=con.prepareStatement(Q);
 				ps.setString(1, ename);
 				ps.setString(2, ebanner);
@@ -75,6 +75,7 @@ public class EventsSandbox extends HttpServlet {
 				ps.setString(12, venue);
 				ps.setString(13, sname);  
 				ps.setString(14, form);  
+				ps.setString(15, category);  
 				int i=ps.executeUpdate();
 				if(i>0)
 				{	out.println("Your Data has been recorded. Thank you for cooperating.");

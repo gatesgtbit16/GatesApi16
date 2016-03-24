@@ -3,8 +3,8 @@ package com.gatesgtbit.model;
 import org.json.JSONObject;
 
 public class EventListData 
-{	private String name,desc;
-	private String time,banner;
+{	private String name,desc,sname;
+	private String time,banner,category;
 	private int eid;
 	public String getName() {
 		return name;
@@ -37,6 +37,19 @@ public class EventListData
 		this.eid = eid;
 	}
 	
+	public String getSname() {
+		return sname;
+	}
+	public void setSname(String sname) {
+		this.sname = sname;
+	}
+	
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
 	public JSONObject getJSONObject()
 	{	JSONObject js=new JSONObject();
 		js.put("eid",eid);
@@ -44,6 +57,8 @@ public class EventListData
 		js.put("ebanner", banner);
 		js.put("time",time);
 		js.put("desc",desc);
+		js.put("sname", sname);
+		js.put("category", category);
 		return js;
 	}
 }
