@@ -13,7 +13,7 @@ public class RandomHash {
 	
 	public static void main(String args[])
 	{	HashMap<String,String> HM=new HashMap<>();
-		File file=new File("/home/localhost/Documents/Events2.txt");
+		File file=new File("/home/localhost/Music/EventList1.txt");
 		try 
 		{	FileReader fin=new FileReader(file);
 			BufferedReader buff=new BufferedReader(fin);
@@ -50,6 +50,5 @@ public class RandomHash {
         }
         String saltStr = salt.toString();
         return saltStr;
-
     }
 }
