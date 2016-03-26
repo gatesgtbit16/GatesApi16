@@ -39,72 +39,111 @@ public class EventDetails extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{	String query=request.getParameter("q");
+		String category=request.getParameter("category");
 		try 
 		{	Class.forName(TableData.DB_DRIVERS);
 			Connection con=DriverManager.getConnection(TableData.CONNECTION_URL,TableData.USERNAME,TableData.PASSWORD);
 			Statement st=con.createStatement();
 			PrintWriter out=response.getWriter();
-	        if(query.equals("all"))
-	        {   String query1="select * from event_details";
-	        	ResultSet res=st.executeQuery(query1);
-	        	JSONArray events=new JSONArray();
-	        	while(res.next())
-	        	{	Event event=new Event();
-	        		event.setEname(res.getString(1));
-	        		event.setEbanner(res.getString(2));
-	        		event.setTime1(res.getString(3));
-	        		EventManager EM=new EventManager();
-	        		EM.setName(res.getString(4));
-	        		EM.setPhoneno(res.getString(7));
-	        		EM.setEmail(res.getString(8));
-	        		event.setEM(EM);
-	        		EventCoordinator EC1=new EventCoordinator();
-	        		EventCoordinator EC2=new EventCoordinator();
-	        		EC1.setName(res.getString(5));
-	        		EC2.setName(res.getString(6));
-	        		event.setEC1(EC1);
-	        		event.setEC2(EC2);
-	        		event.setDesc(res.getString(9));
-	        		event.setTime2(res.getString(10));
-	        		event.setTime3(res.getString(11));
-	        		event.setVenue(res.getString(12));
-	        		event.setEventid(res.getInt(13));
-	        		event.setSname(res.getString(14));
-	        		event.setForm(res.getString(15));
-	        		events.put(event.getEventJSONObject());
-	        	}
-	        	out.println(events.toString());
-	        }
-	        else
-	        {	String query1="select * from event_details where event_id="+query;
-	        	ResultSet res=st.executeQuery(query1);
-	        	JSONArray events=new JSONArray();
-	        	while(res.next())
-	        	{	Event event=new Event();
-	        		event.setEname(res.getString(1));
-	        		event.setEbanner(res.getString(2));
-	        		event.setTime1(res.getString(3));
-	        		EventManager EM=new EventManager();
-	        		EM.setName(res.getString(4));
-	        		EM.setPhoneno(res.getString(7));
-	        		EM.setEmail(res.getString(8));
-	        		event.setEM(EM);
-	        		EventCoordinator EC1=new EventCoordinator();
-	        		EventCoordinator EC2=new EventCoordinator();
-	        		EC1.setName(res.getString(5));
-	        		EC2.setName(res.getString(6));
-	        		event.setEC1(EC1);
-	        		event.setEC2(EC2);
-	        		event.setDesc(res.getString(9));
-	        		event.setTime2(res.getString(10));
-	        		event.setTime3(res.getString(11));
-	        		event.setVenue(res.getString(12));
-	        		event.setEventid(res.getInt(13));
-	        		event.setSname(res.getString(14));
-	        		event.setForm(res.getString(15));
-	        		events.put(event.getEventJSONObject());
-	        	}
-	        	out.println(events.toString());	
+	        if(query!=null)
+			{	if(query.equals("all"))
+		        {   String query1="select * from event_details";
+		        	ResultSet res=st.executeQuery(query1);
+		        	JSONArray events=new JSONArray();
+		        	while(res.next())
+		        	{	Event event=new Event();
+		        		event.setEname(res.getString(1));
+		        		event.setEbanner(res.getString(2));
+		        		event.setTime1(res.getString(3));
+		        		EventManager EM=new EventManager();
+		        		EM.setName(res.getString(4));
+		        		EM.setPhoneno(res.getString(7));
+		        		EM.setEmail(res.getString(8));
+		        		event.setEM(EM);
+		        		EventCoordinator EC1=new EventCoordinator();
+		        		EventCoordinator EC2=new EventCoordinator();
+		        		EC1.setName(res.getString(5));
+		        		EC2.setName(res.getString(6));
+		        		event.setEC1(EC1);
+		        		event.setEC2(EC2);
+		        		event.setDesc(res.getString(9));
+		        		event.setTime2(res.getString(10));
+		        		event.setTime3(res.getString(11));
+		        		event.setVenue(res.getString(12));
+		        		event.setEventid(res.getInt(13));
+		        		event.setSname(res.getString(14));
+		        		event.setForm(res.getString(15));
+		        		event.setCategory(res.getString(16));
+		        		events.put(event.getEventJSONObject());
+		        	}
+		        	out.println(events.toString());
+		        }
+		        else
+		        {	String query1="select * from event_details where event_id="+query;
+		        	ResultSet res=st.executeQuery(query1);
+		        	JSONArray events=new JSONArray();
+		        	while(res.next())
+		        	{	Event event=new Event();
+		        		event.setEname(res.getString(1));
+		        		event.setEbanner(res.getString(2));
+		        		event.setTime1(res.getString(3));
+		        		EventManager EM=new EventManager();
+		        		EM.setName(res.getString(4));
+		        		EM.setPhoneno(res.getString(7));
+		        		EM.setEmail(res.getString(8));
+		        		event.setEM(EM);
+		        		EventCoordinator EC1=new EventCoordinator();
+		        		EventCoordinator EC2=new EventCoordinator();
+		        		EC1.setName(res.getString(5));
+		        		EC2.setName(res.getString(6));
+		        		event.setEC1(EC1);
+		        		event.setEC2(EC2);
+		        		event.setDesc(res.getString(9));
+		        		event.setTime2(res.getString(10));
+		        		event.setTime3(res.getString(11));
+		        		event.setVenue(res.getString(12));
+		        		event.setEventid(res.getInt(13));
+		        		event.setSname(res.getString(14));
+		        		event.setForm(res.getString(15));
+		        		event.setCategory(res.getString(16));
+		        		events.put(event.getEventJSONObject());
+		        	}
+		        	out.println(events.toString());	
+		        }
+			}
+			else if(category!=null)
+	        {	if(!category.equals(""))
+		        {	String query1="select * from event_details where category='"+category+"'";
+			    	ResultSet res=st.executeQuery(query1);
+		        	JSONArray events=new JSONArray();
+		        	while(res.next())
+		        	{	Event event=new Event();
+		        		event.setEname(res.getString(1));
+		        		event.setEbanner(res.getString(2));
+		        		event.setTime1(res.getString(3));
+		        		EventManager EM=new EventManager();
+		        		EM.setName(res.getString(4));
+		        		EM.setPhoneno(res.getString(7));
+		        		EM.setEmail(res.getString(8));
+		        		event.setEM(EM);
+		        		EventCoordinator EC1=new EventCoordinator();
+		        		EventCoordinator EC2=new EventCoordinator();
+		        		EC1.setName(res.getString(5));
+		        		EC2.setName(res.getString(6));
+		        		event.setEC1(EC1);
+		        		event.setEC2(EC2);
+		        		event.setDesc(res.getString(9));
+		        		event.setTime2(res.getString(10));
+		        		event.setTime3(res.getString(11));
+		        		event.setVenue(res.getString(12));
+		        		event.setEventid(res.getInt(13));
+		        		event.setSname(res.getString(14));
+		        		event.setForm(res.getString(15));
+		        		event.setCategory(res.getString(16));
+		        		events.put(event.getEventJSONObject());
+		        	}
+		        	out.println(events.toString());	
+		        }
 	        }
 	        con.close();
 		} 

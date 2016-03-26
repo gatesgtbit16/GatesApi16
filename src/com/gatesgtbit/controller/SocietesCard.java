@@ -30,14 +30,14 @@ public class SocietesCard extends HttpServlet
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-	{	String fname[]={"atu","bli","dlci",
+	{	String fname[]={"atu","bli","csi","dlci",
 						"edci","elancei","epicturei",
 						"etci","gfsi","gi",
 						"gsci","ieeei","istei",
 						"muni","natyai","swaasi",
 						"tsgi"};
-		String sname[]={"Android Techies","Bhangra Lions","DLC",
-						"IIPC","Elance","Epicture",
+		String sname[]={"Android Techies","Bhangra Lions","Computer Society of GTBIT",
+						"DLC","IIPC","Elance","Epicture",
 						"Etcetra","G#","GFS",
 						"GSC","IEEE","ISTE",
 						"Munistry","Natya","Swaas","TSG"};
