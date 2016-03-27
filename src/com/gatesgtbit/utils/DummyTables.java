@@ -1,35 +1,46 @@
 package com.gatesgtbit.utils;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
+import java.util.HashMap;
 import java.util.Random;
 
-import com.gatesgtbit.model.TableData;
-
 public class DummyTables 
-{	public static final String HOST="ec2-54-204-12-25.compute-1.amazonaws.com";
+{	public static final String HOST="ec2-54-83-57-25.compute-1.amazonaws.com";
 	public static final String PORT="5432";
-	public static final String DB_NAME="d221kblcqmlm90";
-	public static final String USERNAME="pjypkeneogaywf";
-	public static final String PASSWORD="MSEH-HlBk8_rz4wc5-02XAIStH";
+	public static final String DB_NAME="d7d7u6r32rp2pb";
+	public static final String USERNAME="lbwiyhpiuhcwhs";
+	public static final String PASSWORD="rEiKYkYxcgjhd-eStzdHLlO4rM";
 	public static final String DB_DRIVERS="org.postgresql.Driver";	
 	public static final String CONNECTION_URL="jdbc:postgresql://"+HOST+":"+PORT+"/"+DB_NAME+"?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory&sslmode=require";
 
 	public static void main(String args[])
-	{	try 
-		{	Class.forName(DummyTables.DB_DRIVERS);
-			Connection con=DriverManager.getConnection(DummyTables.CONNECTION_URL,DummyTables.USERNAME,DummyTables.PASSWORD);
-			Statement st=con.createStatement();
-			for(int i=0;i<150;i++)
-			{	st.executeUpdate("create table "+DummyTables.getSaltString()+" "
-								+"(  asd varchar(20)"
-								+")");
+	{	File file=new File("HashSet.txt");
+		if(file.exists())
+		{	try 
+			{	Class.forName(DummyTables.DB_DRIVERS);
+				Connection con=DriverManager.getConnection(DummyTables.CONNECTION_URL,DummyTables.USERNAME,DummyTables.PASSWORD);
+				ObjectInputStream oin=new ObjectInputStream(new FileInputStream(file));
+				Object obj=oin.readObject();
+				if(obj instanceof HashMap)
+				{	HashMap<String,String> HM=(HashMap<String, String>)obj;
+					for(String key:HM.keySet())
+					{	System.out.println(key);
+						Statement st=con.createStatement();
+						st.executeUpdate("create table "+key+" as select * from hack");
+						st.close();
+					}
+				}
+				oin.close();
+				con.close();
+			} 
+			catch (Exception e) 
+			{	e.printStackTrace();
 			}
-			System.out.println("Done");
-		}
-		catch(Exception e)
-		{	e.printStackTrace();		
 		}
 	}
 	
