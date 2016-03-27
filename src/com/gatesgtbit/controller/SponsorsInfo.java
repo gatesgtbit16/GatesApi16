@@ -44,7 +44,7 @@ public class SponsorsInfo extends HttpServlet {
 	        String query1="select * from sponsers";
 	    	ResultSet res=st.executeQuery(query1);
 	    	JSONObject title=new JSONObject();
-	    	title.put("title","Previous Sponsers");
+	    	title.put("title","Previous Sponsors");
 	    	JSONArray arr=new JSONArray();
     		while(res.next())
 	    	{	JSONObject obj=new JSONObject();
