@@ -6,10 +6,10 @@ import java.util.TimeZone;
 public class UTC {
 	public static void main(String args[])
 	{	Calendar cal=Calendar.getInstance(TimeZone.getTimeZone("IST"));
-		cal.set(Calendar.HOUR_OF_DAY,9);
+		cal.set(Calendar.HOUR_OF_DAY,11);
 		cal.set(Calendar.MINUTE,00);
 		cal.set(Calendar.SECOND,00);
-		cal.set(Calendar.DAY_OF_MONTH,29);
+		cal.set(Calendar.DAY_OF_MONTH,30);
 		
 		//Dont Change these
 		cal.set(Calendar.MONTH,2);
